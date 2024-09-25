@@ -2,18 +2,22 @@
     <div class="search">
         <h3>Ajouter un artiste</h3>
         <form>
-            <input type="text" name="artistName" placeholder="Nana Mouskouri">
-            <button>Rechercher</button>
+            <input type="text" name="artistName" placeholder="Nana Mouskouri" [(ngModel)]="artistName">
+            <button (click)="AddArtist()">Rechercher</button>
         </form>
     </div>
     <div class="display">
         <h3>Vos artistes</h3>
         <div class="row">
-
+            <div *ngFor="let a in artists">
+                <h4>{{a.name}}</h4>
+                <img src={{a.image}} alt="Artiste 1">
+                <button [routerLink]="['/albums']">Albums</button><button [routerLink]="['/concerts']">Concerts</button>
+            </div>
             <!-- Liste d'artistes ajoutés aux favoris -->
             <div>
-                <h4>Artiste 1</h4>
-                <img src="/assets/images/artist.png" alt="Artiste 1">
+                <h4>{{artists[0].name}}</h4>
+                <img src={{artists[0].image}} alt="Artiste 1">
                 <button [routerLink]="['/albums']">Albums</button><button [routerLink]="['/concerts']">Concerts</button>
             </div>
             <div>

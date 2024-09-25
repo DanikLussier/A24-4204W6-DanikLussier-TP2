@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SpotifyService } from '../services/spotify.service';
 
 @Component({
   selector: 'app-chansons',
@@ -9,5 +10,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './chansons.component.css'
 })
 export class ChansonsComponent {
+  constructor(public spotify : SpotifyService) {
 
+  }
 }
