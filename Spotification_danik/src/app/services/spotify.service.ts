@@ -42,14 +42,12 @@ export class SpotifyService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer' + this.accessToken
+        'Authorization': 'Bearer ' + this.accessToken
       })
     }
-
-    let x = await lastValueFrom(
-      this.http.get<any>("https://api.spotify.com/v1/artists/" + artist.id +
-      "/albums?include_groups=album,single", httpOptions
-    ));
+    let x = await lastValueFrom(this.http.get<any>("https://api.spotify.com/v1/artists/" + artist.id +
+      "/albums?include_groups=album,single", httpOptions));
+    console.log(x)
 
     let albums = new Array<Album>
     for (let i = 0; i < x.items.length; i++){
