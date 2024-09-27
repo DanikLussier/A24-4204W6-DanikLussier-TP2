@@ -8,34 +8,14 @@
     </div>
     <div class="display">
         <h3>Vos artistes</h3>
+        <button (click)="ClearArtists()" class="vider">Vider La Liste</button>
         <div class="row">
-            <div *ngFor="let a in artists">
+            <!-- Liste d'artistes ajoutés aux favoris -->
+            <div *ngFor="let a of artists">
                 <h4>{{a.name}}</h4>
                 <img src={{a.image}} alt="Artiste 1">
                 <button [routerLink]="['/albums']">Albums</button><button [routerLink]="['/concerts']">Concerts</button>
             </div>
-            <!-- Liste d'artistes ajoutés aux favoris -->
-            <div>
-                <h4>{{artists[0].name}}</h4>
-                <img src={{artists[0].image}} alt="Artiste 1">
-                <button [routerLink]="['/albums']">Albums</button><button [routerLink]="['/concerts']">Concerts</button>
-            </div>
-            <div>
-                <h4>Artiste 2</h4>
-                <img src="/assets/images/artist.png" alt="Artiste 2">
-                <button>Albums</button><button>Concerts</button>
-            </div>
-            <div>
-                <h4>Artiste 3</h4>
-                <img src="/assets/images/artist.png" alt="Artiste 3">
-                <button>Albums</button><button>Concerts</button>
-            </div>
-            <div>
-                <h4>Artiste 4</h4>
-                <img src="/assets/images/artist.png" alt="Artiste 4">
-                <button>Albums</button><button>Concerts</button>
-            </div>
-
         </div>
     </div>
 </div>
