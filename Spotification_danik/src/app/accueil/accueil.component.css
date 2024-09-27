@@ -9,13 +9,14 @@
 
 .display{
     flex:3;
+    text-align: center;
 }
 
 .display .row{
     gap:7px;
 }
 
-.display h4{
+.display h4, .vider{
     margin:0px 0px 5px 0px;
 }
 
