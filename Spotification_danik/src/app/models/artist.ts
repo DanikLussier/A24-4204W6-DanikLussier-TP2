@@ -6,7 +6,7 @@ export class Artist {
     public chansons ?: Array<Album>
     public concerts ?: Array<Concert>
 
-    constructor(public name : string, public image : string) {
+    constructor(public name : string, public image : string, public id : string) {
         this.chansons = new Array<Album>()
         this.concerts = new Array<Concert>()
     }
