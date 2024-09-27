@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Artist } from '../models/artist';
 import { Album } from '../models/album';
+import { Chanson } from '../models/chansons';
 
 const CLIENT_ID : string = "25405d6c6f7c49869a71b114a4115f36"
 const CLIENT_SECRET : string = "f7e3631d3c334a10a60ce702dc2640ec"
@@ -55,5 +56,34 @@ export class SpotifyService {
     }
 
     return albums
+  }
+
+  async SearchAlbum(albumId : string) : Promise<Album> {
+    const httpOptions = { headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + this.accessToken
+    })};
+    let x = await lastValueFrom(this.http.get<any>('https://api.spotify.com/v1/albums/' + albumId, httpOptions));
+    console.log(x)
+    return new Album(x.items.name, x.items.images[0].url, x.items.id)
+  }
+
+  async SearchSongs (album: Album): Promise<Chanson[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.accessToken
+      })
+    }
+
+    let x = await lastValueFrom(this.http.get<any>("https://api.spotify.com/v1/albums/" + album.id, httpOptions));
+    console.log(x)
+
+    let chansons : Chanson[] = []
+    for (let i = 0; i < x.tracks.items.length; i++) {
+      chansons.push(new Chanson(x.tracks.items[i].name, x.tracks.items[i].id))
+    }
+
+    return chansons
   }
 }
