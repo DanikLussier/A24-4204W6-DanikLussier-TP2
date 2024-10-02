@@ -6,7 +6,7 @@
             <div *ngFor="let album of albums">
                 <h4>{{album.title}}</h4>
                 <img src="{{album.image}}" alt="{{album.title}}">
-                <button [routerLink]="['/chansons', album.id]">Chansons</button>
+                <button [routerLink]="['/chansons', album.id, artistName]">Chansons</button>
             </div>
         </div>
     </div>

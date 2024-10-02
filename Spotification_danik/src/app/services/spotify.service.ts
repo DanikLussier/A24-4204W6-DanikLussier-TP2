@@ -65,7 +65,7 @@ export class SpotifyService {
     })};
     let x = await lastValueFrom(this.http.get<any>('https://api.spotify.com/v1/albums/' + albumId, httpOptions));
     console.log(x)
-    return new Album(x.items.name, x.items.images[0].url, x.items.id)
+    return new Album(x.name, x.images[0].url, x.id)
   }
 
   async SearchSongs (album: Album): Promise<Chanson[]> {

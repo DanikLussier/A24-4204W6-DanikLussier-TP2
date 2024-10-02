@@ -39,6 +39,7 @@ export class AlbumsComponent {
 
   async GetArtist() {
     this.artistName = this.route.snapshot.paramMap.get("artistName")
+    console.log(this.artistName)
     if (this.artistName != null) {
       await this.spotify.searchArtist(this.artistName).then((a) => {
         this.artist = a
