@@ -8,30 +8,10 @@
     <div class="shows">
 
          <!-- Liste des concerts -->
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
-        </div>
-        <div>
-            <h4>Jan 1, 2024, 8:00:00 PM</h4>
-            <p>Pays</p>
-            <p>Ville</p>
+        <div *ngFor="let concert of concerts">
+            <h4>{{concert.date}}</h4>
+            <p>{{concert.pays}}</p>
+            <p>{{concert.ville}}</p>
         </div>
 
     </div>           
