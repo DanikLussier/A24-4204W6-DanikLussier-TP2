@@ -1,4 +1,8 @@
 {
+    "app":{
+        "template":"J'ai yoink le template de l'enseignant",
+        "droits":"© Tous droits réservés à Spotify, BandsInTown et Google"
+    },
     "accueil":{
         "ajouterArtiste":"Ajouter un artiste",
         "rechercher":"Rechercher",
@@ -16,6 +20,7 @@
         "jouer":"Jouer"
     },
     "concerts":{
-        "nomArtiste":"Concerts de l'artiste {{x}}"
+        "nomArtiste":"Concerts de l'artiste {{x}}",
+        "aucunConcert":"Cet artiste n'a pas de concert"
     }
 }

@@ -1,0 +1,26 @@
+{
+    "app":{
+        "template":"I yonked the teacher's template",
+        "droits":"© all rights reserved to Spotify, BandsInTown and Google"
+    },
+    "accueil":{
+        "ajouterArtiste":"Add an artist",
+        "rechercher":"Search",
+        "vosArtistes":"Your artists",
+        "viderLaListe":"Empty list",
+        "albums":"Albums",
+        "concerts":"Concerts"
+    },
+    "albums":{
+        "nomArtiste":"Albums by {{x}}",
+        "chansons":"Songs"
+    },
+    "chansons":{
+        "nomAlbum":"Songs from the album {{x}}",
+        "jouer":"Play"
+    },
+    "concerts":{
+        "nomArtiste":"Concerts by {{x}}",
+        "auncunConcert":"This artist does not have any concert"
+    }
+}

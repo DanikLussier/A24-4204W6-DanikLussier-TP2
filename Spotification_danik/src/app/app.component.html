@@ -1,11 +1,11 @@
 <header>
     <div class="row">
-        <div><a href="artist.html">J'ai yoink le template de l'enseignant</a></div>
+        <div><a href="artist.html" translate>app.template</a></div>
         <div class="spacer"></div>
         <div>
-            <select name="language" id="language">
-                <option value="fr-ca">Français</option>
-                <option value="en-us">English</option>
+            <select #lang (change)="changeLanguage(lang.value)" name="language" id="language">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
             </select>
         </div>
     </div>
@@ -14,7 +14,7 @@
   <router-outlet></router-outlet>
 </main>
 <footer>
-    <div>
-        &copy; Tous droits réservés à Spotify, BandsInTown et Google
+    <div translate>
+        app.droits
     </div>
 </footer>

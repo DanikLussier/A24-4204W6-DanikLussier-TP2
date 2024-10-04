@@ -26,16 +26,11 @@ export class ChansonsComponent {
 
   videoUrl : SafeResourceUrl | null = null
 
-  language : string = "fr"
-
   constructor(
     public spotify : SpotifyService, 
     public route : ActivatedRoute, 
     public youtube: VideoYoutubeService, 
-    public sanitizer: DomSanitizer,
-    public translate : TranslateService) {
-    translate.setDefaultLang(this.language)
-  }
+    public sanitizer: DomSanitizer) {}
 
   async ngOnInit() {
     this.artistName = this.route.snapshot.paramMap.get("artistName")

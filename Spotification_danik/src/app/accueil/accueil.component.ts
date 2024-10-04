@@ -18,11 +18,7 @@ export class AccueilComponent {
   artistName = ""
   artists = new Array<Artist>
 
-  language : string = "fr"
-
-  constructor(public spotify : SpotifyService, public translate : TranslateService) {
-    this.translate.setDefaultLang(this.language)
-  }
+  constructor(public spotify : SpotifyService) {}
 
   ngOnInit() {
     this.spotify.connect()

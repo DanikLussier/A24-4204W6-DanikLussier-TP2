@@ -19,11 +19,9 @@ export class AlbumsComponent {
   artist : Artist | null = null
   artistName : string | null = null
 
-  language : string = "fr"
-
-  constructor(public spotify : SpotifyService, public route : ActivatedRoute, public translate : TranslateService) {
-    translate.setDefaultLang(this.language)
-  }
+  constructor(
+    public spotify : SpotifyService, 
+    public route : ActivatedRoute) {}
 
   async ngOnInit() {
     this.spotify.connect()

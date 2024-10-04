@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Pipe, PipeTransform } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SpotifyService } from '../services/spotify.service';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -23,15 +23,10 @@ export class ConcertsComponent {
   concerts : Concert[] = new Array<Concert>
   artistName : string | null = ""
 
-  language : string = "fr"
-
   constructor(
     public spotify : SpotifyService, 
     public bandsInTown : BandsInTownService, 
-    public route : ActivatedRoute,
-    public translate : TranslateService) {
-      translate.setDefaultLang(this.language)
-    }
+    public route : ActivatedRoute) {}
 
   ngOnInit() {
     this.artistName = this.route.snapshot.paramMap.get("artistName")

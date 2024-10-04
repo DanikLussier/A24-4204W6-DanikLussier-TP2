@@ -11,8 +11,9 @@
             <div class="shows">
 
                 <!-- Liste des concerts -->
+                <h3 *ngIf="concerts.length == 0" translate>concerts.aucunConcert</h3>
                 <div *ngFor="let concert of concerts">
-                    <h4 translate [translateParams]="{x: concert.date}">concerts.date</h4>
+                    <h4>{{concert.date | date:'EEEE le d MMMM yyyy':'':'fr'}}</h4>
                     <p>{{concert.pays}}</p>
                     <p>{{concert.ville}}</p>
                 </div>
