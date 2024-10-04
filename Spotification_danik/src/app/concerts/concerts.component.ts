@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SpotifyService } from '../services/spotify.service';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { BandsInTownService } from '../services/bands-in-town.service';
 import { Concert } from '../models/concert';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-concerts',
   standalone: true,
-  imports: [RouterModule, GoogleMapsModule, CommonModule],
+  imports: [RouterModule, GoogleMapsModule, CommonModule, TranslateModule, DatePipe],
   templateUrl: './concerts.component.html',
   styleUrl: './concerts.component.css'
 })
@@ -22,7 +23,15 @@ export class ConcertsComponent {
   concerts : Concert[] = new Array<Concert>
   artistName : string | null = ""
 
-  constructor(public spotify : SpotifyService, public bandsInTown : BandsInTownService, public route : ActivatedRoute) {}
+  language : string = "fr"
+
+  constructor(
+    public spotify : SpotifyService, 
+    public bandsInTown : BandsInTownService, 
+    public route : ActivatedRoute,
+    public translate : TranslateService) {
+      translate.setDefaultLang(this.language)
+    }
 
   ngOnInit() {
     this.artistName = this.route.snapshot.paramMap.get("artistName")
@@ -43,7 +52,9 @@ export class ConcertsComponent {
   async InitPoints() {
     for (let i = 0; i < this.concerts.length; i++)
     {
-      this.markerPositions.push({lat: this.concerts[i].lat, lng: this.concerts[i].lng})
+      var lat : number = this.concerts[i].lat
+      var lng : number = this.concerts[i].lng
+      this.markerPositions.push({lat: lat, lng: lng})
       console.log(this.concerts[i].lat, this.concerts[i].lng)
     }
   }

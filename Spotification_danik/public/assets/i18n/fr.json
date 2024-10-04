@@ -1,0 +1,21 @@
+{
+    "accueil":{
+        "ajouterArtiste":"Ajouter un artiste",
+        "rechercher":"Rechercher",
+        "vosArtistes":"Vos artistes",
+        "viderLaListe":"Vider la liste",
+        "albums":"Albums",
+        "concerts":"Concerts"
+    },
+    "albums":{
+        "nomArtiste":"Albums de {{x}}",
+        "chansons":"Chansons"
+    },
+    "chansons":{
+        "nomAlbum":"Chansons de l'album {{x}}",
+        "jouer":"Jouer"
+    },
+    "concerts":{
+        "nomArtiste":"Concerts de l'artiste {{x}}"
+    }
+}

@@ -1,20 +1,20 @@
 <div class="row">
     <div class="search">
-        <h3>Ajouter un artiste</h3>
+        <h3 translate>accueil.ajouterArtiste</h3>
         <form>
             <input type="text" name="artistName" placeholder="Nana Mouskouri" [(ngModel)]="artistName">
-            <button (click)="AddArtist()">Rechercher</button>
+            <button (click)="AddArtist()" translate>accueil.rechercher</button>
         </form>
     </div>
     <div class="display">
-        <h3>Vos artistes</h3>
-        <button (click)="ClearArtists()" class="vider">Vider La Liste</button>
+        <h3 translate>accueil.vosArtistes</h3>
+        <button (click)="ClearArtists()" class="vider" translate>accueil.viderLaListe</button>
         <div class="row">
             <!-- Liste d'artistes ajoutés aux favoris -->
             <div *ngFor="let a of artists">
                 <h4>{{a.name}}</h4>
                 <img src={{a.image}} alt="Artiste 1">
-                <button [routerLink]="['/albums', a.name]">Albums</button><button [routerLink]="['/concerts', a.name]">Concerts</button>
+                <button [routerLink]="['/albums', a.name]" translate>accueil.albums</button><button [routerLink]="['/concerts', a.name]" translate>accueil.concerts</button>
             </div>
         </div>
     </div>

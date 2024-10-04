@@ -7,11 +7,12 @@ import { Album } from '../models/album';
 import { VideoYoutubeService } from '../services/videoYoutube.service';
 import { Artist } from '../models/artist';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chansons',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, TranslateModule],
   templateUrl: './chansons.component.html',
   styleUrl: './chansons.component.css'
 })
@@ -25,8 +26,15 @@ export class ChansonsComponent {
 
   videoUrl : SafeResourceUrl | null = null
 
-  constructor(public spotify : SpotifyService, public route : ActivatedRoute, public youtube: VideoYoutubeService, public sanitizer: DomSanitizer) {
-    
+  language : string = "fr"
+
+  constructor(
+    public spotify : SpotifyService, 
+    public route : ActivatedRoute, 
+    public youtube: VideoYoutubeService, 
+    public sanitizer: DomSanitizer,
+    public translate : TranslateService) {
+    translate.setDefaultLang(this.language)
   }
 
   async ngOnInit() {

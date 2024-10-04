@@ -4,11 +4,12 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { SpotifyService } from '../services/spotify.service';
 import { Artist } from '../models/artist';
 import { CommonModule, JsonPipe } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule, TranslateModule],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.css'
 })
@@ -17,7 +18,11 @@ export class AccueilComponent {
   artistName = ""
   artists = new Array<Artist>
 
-  constructor(public spotify : SpotifyService) {}
+  language : string = "fr"
+
+  constructor(public spotify : SpotifyService, public translate : TranslateService) {
+    this.translate.setDefaultLang(this.language)
+  }
 
   ngOnInit() {
     this.spotify.connect()

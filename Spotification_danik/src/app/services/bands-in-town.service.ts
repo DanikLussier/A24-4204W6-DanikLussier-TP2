@@ -26,7 +26,7 @@ export class BandsInTownService {
       let concerts = new Array<Concert>
       for (let i = 0; i < x.length; i++)
       {
-        concerts.push(new Concert(x[i].datetime, x[i].venue.country, x[i].venue.city, x[i].venue.latitude, x[i].venue.longitude))
+        concerts.push(new Concert(x[i].datetime, x[i].venue.country, x[i].venue.city, +x[i].venue.latitude, +x[i].venue.longitude))
       }
 
       return concerts

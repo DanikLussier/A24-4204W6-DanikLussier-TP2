@@ -1,19 +1,23 @@
-<h3>Concerts de l'artiste X</h3>
+<h3 translate [translateParams]="{x: artistName}">concerts.nomArtiste</h3>
 <div class="row">
-
-    <google-map [center]="center" [zoom]="zoom" width="700" height="300">
-        <map-marker *ngFor="let marker of markerPositions" [position]="marker"></map-marker>
-    </google-map>
-
-    <div class="shows">
-
-         <!-- Liste des concerts -->
-        <div *ngFor="let concert of concerts">
-            <h4>{{concert.date}}</h4>
-            <p>{{concert.pays}}</p>
-            <p>{{concert.ville}}</p>
+    <div class="col">
+        <div class="row">
+            <google-map [center]="center" [zoom]="zoom" width="700" height="300">
+                <map-marker *ngFor="let marker of markerPositions" [position]="marker"></map-marker>
+            </google-map>
         </div>
+        
+        <div class="row">
+            <div class="shows">
 
-    </div>           
-
+                <!-- Liste des concerts -->
+                <div *ngFor="let concert of concerts">
+                    <h4 translate [translateParams]="{x: concert.date}">concerts.date</h4>
+                    <p>{{concert.pays}}</p>
+                    <p>{{concert.ville}}</p>
+                </div>
+    
+            </div>
+        </div>
+    </div>    
 </div>

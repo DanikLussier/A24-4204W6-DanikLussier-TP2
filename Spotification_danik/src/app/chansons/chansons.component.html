@@ -1,4 +1,4 @@
-<h3>Chansons de l'album {{albumName}}</h3>
+<h3 translate [translateParams]="{x: albumName}">chansons.nomAlbum</h3>
 <div class="row">
     <div *ngIf="videoUrl != null" class="youtubePlayer">
         <iframe width="560" height="315" [src]="videoUrl" title="YouTube video player" frameborder="0" 
@@ -13,7 +13,7 @@
             <!-- Liste de chansons d'un album choisi -->
             <div *ngFor="let chanson of chansons">
                 <p>{{chanson.title}}</p>
-                <button (click)="GetVideo(chanson.title, artistName)">Jouer</button>
+                <button (click)="GetVideo(chanson.title, artistName)" translate>chansons.jouer</button>
             </div>
         </div>
     </div>
